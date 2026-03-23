@@ -4,7 +4,8 @@ using FastEndpoints.Swagger;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDatabase(builder.Configuration);
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")!;
+builder.Services.AddDatabase(connectionString);
 
 builder.Services.AddFastEndpoints()
     .SwaggerDocument();

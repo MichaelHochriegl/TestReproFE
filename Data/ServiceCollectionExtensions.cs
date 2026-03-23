@@ -8,10 +8,8 @@ public static class ServiceCollectionExtensions
 {
     extension(IServiceCollection services)
     {
-        public IServiceCollection AddDatabase(IConfiguration configuration)
+        public IServiceCollection AddDatabase(string connectionString)
         {
-            var connectionString = configuration.GetConnectionString("DefaultConnection");
-            
             services.AddDbContext<AppDbContext>(o => o.UseNpgsql(connectionString));
             
             return services;

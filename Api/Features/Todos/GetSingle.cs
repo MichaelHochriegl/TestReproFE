@@ -8,7 +8,7 @@ public record GetSingleRequest(Guid Id);
 
 public record GetSingleResponse(Guid Id, string Name, string? Description);
 
-public class GetSingleEndpoint(AppDbContext dbContext) : Endpoint<GetSingleRequest, GetSingleResponse>
+public class GetSingle(AppDbContext dbContext) : Endpoint<GetSingleRequest, GetSingleResponse>
 {
     public override void Configure()
     {
